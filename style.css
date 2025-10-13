@@ -6,7 +6,7 @@ body {
 }
 
 a {
-    color: #3A9FF1;
+    color: #3a9ff1;
     text-decoration: none;
     transition: color 0.2s, text-decoration 0.2s;
 }
@@ -18,7 +18,7 @@ a:hover {
 
 /* Hero Section */
 header {
-    background-color: #3A9FF1;
+    background-color: #64b7ff;
     color: white;
     text-align: center;
     padding: 60px 20px;
@@ -52,7 +52,7 @@ header p {
     border-radius: 25px;
     border: 2px solid white;
     background-color: white;
-    color: #3A9FF1;
+    color: #3a9ff1;
     transition: 0.2s;
 }
 
@@ -99,7 +99,7 @@ header p {
 }
 
 .feature-card h3 {
-    color: #3A9FF1;
+    color: #3a9ff1;
     margin-bottom: 12px;
     font-size: 1.3rem;
 }
@@ -110,7 +110,7 @@ header p {
 
 /* Promo Section*/
 .promo-box {
-    background-color: #64B7FF;
+    background-color: #3a9ff1;
     color: white;
     text-align: center;
     padding: 50px 20px;
@@ -134,7 +134,7 @@ header p {
     border-radius: 25px;
     border: none;
     background-color: white;
-    color: #3A9FF1;
+    color: #64b7ff;
     transition: 0.2s;
 }
 
@@ -154,6 +154,10 @@ footer {
 @media (max-width: 768px) {
     header h1 {
         font-size: 2.2rem;
+    }
+
+    header img {
+        width: 50%;
     }
 
     .features {
