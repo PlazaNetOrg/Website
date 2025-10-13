@@ -1,0 +1,135 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="300" height="300" viewBox="0 0 300 300">
+<circle cx="150" cy="150" r="150" fill="#99c1f1"/>
+<g transform="translate(37.5,37.5) scale(0.75)">
+  <defs
+     id="defs1" />
+  <g
+     id="g6">
+    <path
+       style="font-variation-settings:'opsz' 32;opacity:1;fill:#ffffff;stroke:none;stroke-width:0.965454"
+       id="path5"
+       d="m 256.81897,-191.35069 a 106.46542,183.35069 0 0 1 -53.23271,158.786356 106.46542,183.35069 0 0 1 -106.465429,-4e-6 A 106.46542,183.35069 0 0 1 43.888123,-191.35069 H 150.35355 Z"
+       transform="scale(1,-1)" />
+    <path
+       style="font-variation-settings:'opsz' 32;opacity:1;fill:#ffffff;stroke:none;stroke-width:0.73317"
+       id="path6"
+       d="m 256.81897,186.24619 a 106.46542,105.73692 0 0 1 -53.23271,91.57086 106.46542,105.73692 0 0 1 -106.465429,0 106.46542,105.73692 0 0 1 -53.232708,-91.57086 H 150.35355 Z" />
+  </g>
+
+</g>
+<g transform="translate(37.5,37.5) scale(0.75)">
+  <defs
+     id="defs1" />
+  <circle
+     style="fill:#000000;fill-opacity:1;stroke:none;stroke-width:1;stroke-dasharray:none"
+     id="path3"
+     cx="190"
+     cy="132.58064"
+     r="15" />
+  <circle
+     style="fill:#000000;fill-opacity:1;stroke:none;stroke-width:1;stroke-dasharray:none"
+     id="circle3"
+     cx="110"
+     cy="132.58064"
+     r="15" />
+
+</g>
+<g transform="translate(37.5,37.5) scale(0.75)">
+  <defs
+     id="defs1" />
+  <path
+     style="font-variation-settings:'opsz' 32;opacity:1;fill:none;stroke:#000000;stroke-width:5;stroke-linecap:butt;stroke-linejoin:miter;stroke-dasharray:none;stroke-opacity:1;paint-order:normal"
+     id="path9"
+     d="m 175,169.35328 c 8.75811,5.17816 -4.76497,17.18481 -12.5,21.65063 -7.73503,4.46582 -17.26497,4.46582 -25,0 -7.73503,-4.46582 -19.85055,-17.72363 -12.5,-21.65063" />
+
+</g>
+<g transform="translate(37.5,37.5) scale(0.75)">
+  <defs
+     id="defs1" />
+  <g
+     id="g6"
+     transform="matrix(0.61393863,0,0,0.61393863,57.308166,84.884672)">
+    <rect
+       style="font-variation-settings:'opsz' 32;fill:#000000;fill-rule:nonzero;stroke:#000000;stroke-width:1.50625;stroke-dasharray:none"
+       id="rect1"
+       width="5"
+       height="35"
+       x="-271.11115"
+       y="-59.836952"
+       transform="rotate(-135)" />
+    <rect
+       style="font-variation-settings:'opsz' 32;fill:#000000;fill-rule:nonzero;stroke:#000000;stroke-width:1.52925;stroke-dasharray:none"
+       id="rect2"
+       width="5.0763388"
+       height="35.534374"
+       x="-64.190323"
+       y="-272.16785"
+       transform="matrix(0.718346,-0.69568601,-0.718346,-0.69568601,0,0)" />
+    <rect
+       style="font-variation-settings:'opsz' 32;fill:#000000;fill-rule:nonzero;stroke:#000000;stroke-width:1.51927;stroke-dasharray:none"
+       id="rect3"
+       width="5.0432053"
+       height="35.302437"
+       x="-241.18213"
+       y="-92.829643"
+       transform="matrix(-0.71356068,-0.70059344,0.71356068,-0.70059344,0,0)" />
+    <rect
+       style="font-variation-settings:'opsz' 32;fill:#000000;fill-rule:nonzero;stroke:#000000;stroke-width:1.54292;stroke-dasharray:none"
+       id="rect4"
+       width="5.1217079"
+       height="35.851955"
+       x="-96.744194"
+       y="-242.82747"
+       transform="matrix(0.7246896,-0.68907546,-0.7246896,-0.68907546,0,0)" />
+    <rect
+       style="font-variation-settings:'opsz' 32;fill:#000000;fill-rule:nonzero;stroke:#000000;stroke-width:1.50325;stroke-dasharray:none"
+       id="rect5"
+       width="4.9900465"
+       height="34.930328"
+       x="-301.47165"
+       y="-28.770468"
+       transform="matrix(-0.70558533,-0.70862496,0.70558533,-0.70862496,0,0)" />
+    <rect
+       style="font-variation-settings:'opsz' 32;fill:#000000;fill-rule:nonzero;stroke:#000000;stroke-width:1.5261;stroke-dasharray:none"
+       id="rect6"
+       width="5.0658846"
+       height="35.461193"
+       x="-33.596302"
+       y="-302.02121"
+       transform="matrix(0.71684974,-0.69722769,-0.71684974,-0.69722769,0,0)" />
+  </g>
+
+</g>
+<g transform="translate(37.5,37.5) scale(0.75)">
+  <defs
+     id="defs1" />
+  <g
+     id="g4">
+    <rect
+       style="fill:none;stroke:#000000;stroke-width:4;stroke-dasharray:none;stroke-opacity:1"
+       id="rect1"
+       width="73.547997"
+       height="49.677418"
+       x="71.225998"
+       y="107.16129"
+       ry="13.612907" />
+    <rect
+       style="fill:none;stroke:#000000;stroke-width:4;stroke-dasharray:none;stroke-opacity:1"
+       id="rect2"
+       width="73.547997"
+       height="49.677418"
+       x="157.226"
+       y="107.16129"
+       ry="13.612907" />
+    <rect
+       style="fill:#000000;fill-opacity:1;stroke:none;stroke-width:2.78583;stroke-dasharray:none;stroke-opacity:1"
+       id="rect3"
+       width="16.126425"
+       height="4"
+       x="142.96841"
+       y="129.74614"
+       ry="0" />
+  </g>
+
+</g>
+</svg>
