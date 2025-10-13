@@ -1,0 +1,40 @@
+/* About Hero Section */
+.about-hero {
+    padding: 60px;
+    margin: 40px auto;
+    background-color: #f9fcff;
+    text-align: center;
+    border-radius: 25px;
+    max-width: 80%;
+}
+.about-hero h2 {
+    color: #3a9ff1;
+    font-size: 2rem;
+    margin: 20px 0 10px;
+}
+.about-hero p {
+    font-size: 1.2rem;
+    max-width: 600px;
+    margin: 0 auto;
+}
+
+/* Other About Sections */
+.about {
+    padding: 50px;
+    margin: 30px auto;
+    background-color: #f9fcff;
+    color: #333;
+    text-align: center;
+    border-radius: 20px;
+    max-width: 75%
+}
+.about h3 {
+    font-size: 1.5rem;
+    color: #64b7ff;
+    margin-bottom: 15px;
+}
+.about p {
+    font-size: 1rem;
+    max-width: 800px;
+    margin: 0 auto 20px;
+}
