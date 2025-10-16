@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>PlazaNet Documentation</title>
+    <link href="https://fonts.googleapis.com/css2?family=Nunito:wght@400;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="/style.css">
+    <link rel="stylesheet" href="/docs/docs.css">
+    <link rel="icon" type="image/x-icon" href="/favicon.ico">
+</head>
+
+<body>
+    <header class="docs-header">
+        <div class="docs-header-inner">
+            <img src="/assets/logo.svg" alt="PlazaNet Logo" onclick="window.location.href='/'">
+            <h1>PlazaNet Docs</h1>
+            <input type="text" placeholder="Search documentation..." class="docs-search">
+        </div>
+    </header>
+
+    <div class="docs-wrapper">
+        <aside class="docs-sidebar">
+            <nav>
+                <h3>Getting Started</h3>
+                <ul>
+                    <li><a href="#introduction">Introduction</a></li>
+                </ul>
+
+                <h3>Accounts</h3>
+                <ul>
+                    <li><a href="#accounts-install">Installation</a></li>
+                </ul>
+
+                <h3>Development</h3>
+            </nav>
+        </aside>
+
+        <main class="docs-content">
+            <h1>Getting Started</h1>
+
+            <section id="introduction">
+                <h2>Introduction</h2>
+                <p><b>PlazaNet</b> is a social network inspired by Miiverse, built using Python Flask. It’s designed for creative communities, allowing users to post, draw, and interact in themed hubs.</p>
+            </section>
+
+            <h1>Accounts</h1>
+            <section id="accounts-install">
+                <h2>Installation</h2>
+                <p>The <b>PlazaNet Accounts</b> service handles user authentication and management. Follow the steps below to set it up locally.</p>
+
+                <h3>1. Create a working directory</h3>
+                <pre><code>mkdir plazanet && cd plazanet</code></pre>
+
+                <h3>2. Clone the repository</h3>
+                <pre><code>git clone https://github.com/PlazaNetOrg/Accounts accounts
+cd accounts</code></pre>
+
+                <h3>3. Install all requirements</h3>
+                <ul>
+                    <li><b>Python & pip:</b><br>
+                        <pre><code>sudo apt install python3 python3-pip</code></pre>
+                    </li>
+                    <li><b>Python dependencies:</b><br>
+                        <pre><code>pip install -r requirements.txt</code></pre>
+                    </li>
+                    <li><b>OpenSSL (for secret key generation):</b><br>
+                        <pre><code>sudo apt install openssl</code></pre>
+                    </li>
+                </ul>
+
+                <h3>4. Configure environment variables</h3>
+                <p>Rename the provided example configuration file:</p>
+                <pre><code>mv .env.example .env</code></pre>
+                <p>Then replace the placeholder values with your own. You can generate secure keys with OpenSSL:</p>
+                <pre><code>openssl rand -base64 32</code></pre>
+                <p>Example <code>.env</code> file:</p>
+                <pre><code>SECRET_KEY=your-generated-secret
+JWT_SECRET_KEY=your-generated-jwt-key</code></pre>
+                <p>Optionally adjust other values in the file to customize.</p>
+
+                <h3>5. Initialize the database</h3>
+                <p>Run the following commands to create and migrate the database schema:</p>
+                <pre><code>flask --app run.py db init
+flask --app run.py db migrate -m "Initial migration"
+flask --app run.py db upgrade</code></pre>
+
+                <h3>6. Start the server</h3>
+                <pre><code>python3 run.py</code></pre>
+
+                <p>Once the server starts, you can access it at: http://your-ip:7592</p>
+            </section>
+
+            <h1>Development</h1>
+            <p>TODO</p>
+            
+            <hr>
+            <p style="text-align:center;">&copy; 2025 PlazaNet • <a href="/">Return Home</a></p>
+        </main>
+    </div>
+</body>
+
+</html>
