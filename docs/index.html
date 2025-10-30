@@ -9,7 +9,51 @@
     <link rel="stylesheet" href="/style.css">
     <link rel="stylesheet" href="/docs/docs.css">
     <link rel="icon" type="image/x-icon" href="/favicon.ico">
+
+    <!-- Highlight.js (for code highlighting) -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.11.1/styles/github.min.css">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.11.1/highlight.min.js"></script>
+    <script>hljs.highlightAll();</script>
 </head>
+
+<!-- Search Script -->
+<script>
+document.addEventListener("DOMContentLoaded", () => {
+    const searchInput = document.querySelector(".docs-search");
+    const main = document.querySelector(".docs-content");
+
+    const searchable = main.querySelectorAll("h1, h2, h3, p, li, code, pre");
+
+    function clearHighlights() {
+        main.querySelectorAll("mark").forEach(mark => {
+            mark.replaceWith(...mark.childNodes);
+        });
+    }
+
+    function highlight(text, query) {
+        if (!query) return text;
+        const pattern = new RegExp(`(${query.replace(/[.*+?^${}()|[\]\\]/g, '\\$&')})`, "gi");
+        return text.replace(pattern, '<mark>$1</mark>');
+    }
+
+    searchInput.addEventListener("input", () => {
+        const query = searchInput.value.trim().toLowerCase();
+        clearHighlights();
+
+        searchable.forEach(el => {
+            const text = el.textContent.toLowerCase();
+            const match = text.includes(query);
+
+            if (match) {
+                el.innerHTML = highlight(el.textContent, query);
+            }
+        });
+
+        const firstMatch = main.querySelector("mark");
+        if (firstMatch) firstMatch.scrollIntoView({ behavior: "smooth", block: "center" });
+    });
+});
+</script>
 
 <body>
     <header class="docs-header">
@@ -51,52 +95,87 @@
                 <p>The <b>PlazaNet Accounts</b> service handles user authentication and management. Follow the steps below to set it up locally.</p>
 
                 <h3>1. Create a working directory</h3>
-                <pre><code>mkdir plazanet && cd plazanet</code></pre>
+                <pre><code class="language-bash">mkdir plazanet && cd plazanet</code></pre>
 
                 <h3>2. Clone the repository</h3>
-                <pre><code>git clone https://github.com/PlazaNetOrg/Accounts accounts
+                <pre><code class="language-bash">git clone https://github.com/PlazaNetOrg/Accounts accounts
 cd accounts</code></pre>
 
                 <h3>3. Install all requirements</h3>
                 <ul>
                     <li><b>Python & pip:</b><br>
-                        <pre><code>sudo apt install python3 python3-pip</code></pre>
+                        <pre><code class="language-bash">sudo apt install python3 python3-pip</code></pre>
                     </li>
                     <li><b>Python dependencies:</b><br>
-                        <pre><code>pip install -r requirements.txt</code></pre>
+                        <pre><code class="language-bash">pip install -r requirements.txt</code></pre>
                     </li>
                     <li><b>OpenSSL (for secret key generation):</b><br>
-                        <pre><code>sudo apt install openssl</code></pre>
+                        <pre><code class="language-bash">sudo apt install openssl</code></pre>
                     </li>
                 </ul>
 
                 <h3>4. Configure environment variables</h3>
                 <p>Rename the provided example configuration file:</p>
-                <pre><code>mv .env.example .env</code></pre>
+                <pre><code class="language-bash">mv .env.example .env</code></pre>
                 <p>Then replace the placeholder values with your own. You can generate secure keys with OpenSSL:</p>
-                <pre><code>openssl rand -base64 32</code></pre>
-                <p>Example <code>.env</code> file:</p>
-                <pre><code>SECRET_KEY=your-generated-secret
-JWT_SECRET_KEY=your-generated-jwt-key</code></pre>
-                <p>Optionally adjust other values in the file to customize.</p>
+                <pre><code class="language-bash">openssl rand -base64 32</code></pre>
+                <p>Adjust values in the .env file to customize. Below are recommended full examples for development and production (copy and adapt — do not show secrets to anyone!).</p>
+
+                <h4>Development `.env` (local)</h4>
+                <pre><code class="language-ini">APP_NAME=PlazaNet
+PLAZANET_ENABLE=true
+PLAZANET_DOMAIN=127.0.0.1:7593
+PLAZANET_ALLOWED_ORIGINS=http://127.0.0.1:7592,http://127.0.0.1:7593
+SECRET_KEY=dev-secret
+JWT_SECRET_KEY=dev-jwt-secret
+DATABASE_URL=sqlite:///plazanet.db
+FLASK_ENV=development
+JWT_TOKEN_LOCATION=cookies,headers
+JWT_ACCESS_COOKIE_NAME=access_token
+JWT_REFRESH_COOKIE_NAME=refresh_token
+JWT_COOKIE_CSRF_PROTECT=False
+JWT_ACCESS_TOKEN_EXPIRES=3600
+JWT_COOKIE_DOMAIN=127.0.0.1
+JWT_COOKIE_SECURE=False
+JWT_COOKIE_SAMESITE=Lax
+</code></pre>
+
+                <h4>Production `.env` (example)</h4>
+                <pre><code class="language-ini">APP_NAME=PlazaNet
+PLAZANET_ENABLE=true
+PLAZANET_DOMAIN=app.plazanet.org
+PLAZANET_ALLOWED_ORIGINS=https://accounts.plazanet.org,https://app.plazanet.org
+SECRET_KEY=GENERATE_WITH_OPENSSL
+JWT_SECRET_KEY=GENERATE_WITH_OPENSSL
+DATABASE_URL=sqlite:///plazanet.db
+FLASK_ENV=production
+JWT_TOKEN_LOCATION=cookies,headers
+JWT_ACCESS_COOKIE_NAME=access_token
+JWT_REFRESH_COOKIE_NAME=refresh_token
+JWT_COOKIE_CSRF_PROTECT=True
+JWT_ACCESS_TOKEN_EXPIRES=604800
+JWT_COOKIE_DOMAIN=.plazanet.org
+JWT_COOKIE_SECURE=True
+JWT_COOKIE_SAMESITE=None</code></pre>
+
+                <p><strong>Notes:</strong> generate strong values for <code>SECRET_KEY</code> and <code>JWT_SECRET_KEY</code> (e.g. <code>openssl rand -base64 32</code>) and never commit them. If you use cross-site cookies, set <code>JWT_COOKIE_DOMAIN</code> to a shared domain (e.g. <code>.plazanet.org</code>), <code>JWT_COOKIE_SAMESITE=None</code>, and ensure <code>JWT_COOKIE_SECURE=True</code> in production. Browsers require exact origins when <code>Access-Control-Allow-Credentials</code> is true (do not use <code>*</code>).</p>
 
                 <h3>5. Initialize the database</h3>
                 <p>Run the following commands to create and migrate the database schema:</p>
-                <pre><code>flask --app run.py db init
+                <pre><code class="language-bash">flask --app run.py db init
 flask --app run.py db migrate -m "Initial migration"
 flask --app run.py db upgrade</code></pre>
 
                 <h3>6. Start the server</h3>
-                <pre><code>python3 run.py</code></pre>
+                <pre><code class="language-bash">python3 run.py</code></pre>
 
-                <p>Once the server starts, you can access it at: http://your-ip:7592</p>
+                <p>Once the server starts, you can access it at: http://your-ip-or-domain:7592</p>
             </section>
-
-            <h1>Development</h1>
-            <p>TODO</p>
             
             <hr>
-            <p style="text-align:center;">&copy; 2025 PlazaNet • <a href="/">Return Home</a></p>
+            <footer>
+                &copy; 2025 PlazaNet • <a href="/">Return Home</a>
+            </footer>
         </main>
     </div>
 </body>
