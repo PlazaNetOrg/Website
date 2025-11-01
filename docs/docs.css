@@ -153,6 +153,7 @@ mark {
 
     .docs-wrapper {
         flex-direction: column;
+        overflow: visible;
     }
 
     .docs-sidebar {
@@ -161,12 +162,43 @@ mark {
         height: auto;
         border-right: none;
         border-bottom: 2px solid #cce0ff;
+        border-radius: 0;
+        padding: 20px;
+        background-color: #f9fcff;
+    }
+
+    .docs-sidebar h3 {
+        font-size: 1rem;
+        margin-top: 15px;
     }
 
     .docs-content {
         border-radius: 0;
-        padding: 30px 20px;
+        padding: 25px 18px;
         height: auto;
         overflow: visible;
+    }
+
+    .docs-header-inner {
+        flex-wrap: wrap;
+        gap: 10px;
+    }
+
+    .docs-header h1 {
+        font-size: 1.4rem;
+    }
+
+    .docs-search {
+        width: 100%;
+        max-width: none;
+        margin-top: 10px;
+    }
+
+    .docs-sidebar a {
+        padding: 8px 0;
+    }
+
+    .docs-content pre {
+        font-size: 0.9rem;
     }
 }
