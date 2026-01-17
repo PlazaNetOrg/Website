@@ -1,54 +1,153 @@
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>PlazaNet - Your Social Plaza Awaits</title>
+    <title>PlazaNet – About</title>
+
+    <link rel="icon" href="/favicon.ico">
     <link href="https://fonts.googleapis.com/css2?family=Nunito:wght@400;700&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="/style.css">
-    <link rel="stylesheet" href="/about/about.css">
-    <link rel="icon" type="image/x-icon" href="/favicon.ico">
+
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        "plaza-primary": "#3A9FF1",
+                        "plaza-secondary": "#64B7FF",
+                        "plaza-dark": "#0F172A",
+                        "plaza-surface": "#1E293B",
+                        "plaza-text": "#F1F5F9",
+                        "plaza-text-muted": "#94A3B8",
+                        "plaza-divider": "#334155",
+                    },
+                    fontFamily: {
+                        nunito: ["Nunito", "sans-serif"],
+                    },
+                    borderRadius: {
+                        xl2: "25px",
+                    },
+                },
+            },
+        }
+    </script>
 </head>
 
-<body>
-    <header>
-        <img onclick="window.location.href='/'" src="/assets/logo.svg">
-        <h1>PlazaNet</h1>
-        <p>Connect, share, and play — just like the good old Miiverse, but reimagined for today.</p>
+<body class="bg-plaza-dark font-nunito text-plaza-text">
+
+    <!-- Header -->
+    <header class="bg-gradient-to-b from-plaza-primary to-plaza-secondary text-center px-5 py-16 rounded-b-xl2">
+        <img
+            src="/assets/logo.svg"
+            onclick="location.href='/'"
+            class="mx-auto w-1/2 md:w-1/5 cursor-pointer"
+        >
+
+        <h1 class="text-5xl font-bold mt-6">
+            PlazaNet
+        </h1>
+
+        <p class="mt-4 max-w-xl mx-auto text-lg">
+            Connect, share, and play — just like the good old Miiverse, but reimagined for today.
+        </p>
     </header>
 
-    <section class="about-hero">
-        <h2>Welcome to PlazaNet!</h2>
-        <p>PlazaNet is a friendly social network built on belief that online communities should feel personal and creative!</p>
-        <p>Inspired by <b>the golden age of Nintendo's Miiverse</b>, PlazaNet offers you a space to <b>connect with friends</b> and <b>express yourself</b> through unique drawing tools and Pal avatars.</p>
+    <!-- About Hero -->
+    <section class="bg-plaza-surface rounded-xl2 p-12 mx-auto my-12 w-11/12 md:w-4/5 text-center border border-plaza-divider">
+        <h2 class="text-3xl font-bold text-plaza-primary mb-4">
+            Welcome to PlazaNet!
+        </h2>
+
+        <p class="text-lg text-plaza-text mb-4 max-w-2xl mx-auto">
+            PlazaNet is a friendly social network built on the belief that online communities should feel personal and creative!
+        </p>
+
+        <p class="text-plaza-text-muted max-w-2xl mx-auto">
+            Inspired by <b class="text-plaza-text">the golden age of Nintendo's Miiverse</b>, PlazaNet offers a space to
+            <b class="text-plaza-text">connect with friends</b> and <b class="text-plaza-text">express yourself</b>
+            through unique drawing tools and Pal avatars.
+        </p>
     </section>
 
-    <section class="about">
-        <h3>What makes PlazaNet different?</h3>
-        <h4>Built by Community</h4>
-        <p>PlazaNet is not only filled with content by the community but also developed by it. Because of it's open source nature anyone can add features and fix bugs.</p>
-        <h4>A Focus on Connection</h4>
-        <p>PlazaNet is structured around <b>communities & specific topics</b>, making it easy to find like-minded people, whether you're talking about your favorite game, or sharing a doodle.</p>
-        <h4>Creative Expression is Key</h4>
-        <p>Forget boring text feeds. Every user can easily <b>create hand-drawn posts</b> and react to posts using <b>"Woahs"</b>.</p>
+    <!-- About Content -->
+    <section class="bg-plaza-surface rounded-xl2 p-12 mx-auto my-8 w-11/12 md:w-3/4 text-center border border-plaza-divider">
+        <h3 class="text-2xl font-bold text-plaza-secondary mb-6">
+            What makes PlazaNet different?
+        </h3>
+
+        <h4 class="text-xl font-semibold text-plaza-primary mt-6 mb-2">
+            Built by Community
+        </h4>
+        <p class="text-plaza-text-muted max-w-3xl mx-auto">
+            PlazaNet is not only filled with content by the community, but also developed by it. Thanks to its open-source
+            nature, anyone can add features and fix bugs.
+        </p>
+
+        <h4 class="text-xl font-semibold text-plaza-primary mt-8 mb-2">
+            A Focus on Connection
+        </h4>
+        <p class="text-plaza-text-muted max-w-3xl mx-auto">
+            PlazaNet is structured around <b class="text-plaza-text">communities & specific topics</b>, making it easy
+            to find like-minded people, whether you're talking about your favorite game or sharing a doodle.
+        </p>
+
+        <h4 class="text-xl font-semibold text-plaza-primary mt-8 mb-2">
+            Creative Expression is Key
+        </h4>
+        <p class="text-plaza-text-muted max-w-3xl mx-auto">
+            Forget boring text feeds. Every user can easily <b class="text-plaza-text">create hand-drawn posts</b>
+            and react to posts using <b class="text-plaza-text">"Woahs"</b>.
+        </p>
     </section>
 
-    <section class="about">
-        <h3>Ever wanted to own a plaza?</h3>
-        <p>While PlazaNet has it's official instance, the magic doesn’t stop there. Because it's fully self‑hostable, you can spin up your own Linux* server and create a private plaza just for friends, family, or any other group you can think of.</p>
-    <h6>* – PlazaNet is written in Python and works on any system that can run it, but development and the official deployment both happen on Linux.</h6>
+    <!-- Self-Hosting -->
+    <section class="bg-plaza-surface rounded-xl2 p-12 mx-auto my-8 w-11/12 md:w-3/4 text-center border border-plaza-divider">
+        <h3 class="text-2xl font-bold text-plaza-secondary mb-4">
+            Ever wanted to own a plaza?
+        </h3>
+
+        <p class="text-plaza-text-muted max-w-3xl mx-auto mb-6">
+            While PlazaNet has its official instance, the magic doesn’t stop there.
+            Because it’s fully self-hostable, you can spin up your own server and create a
+            private plaza just for friends, family, or any group you can imagine.
+        </p>
+
+        <h6 class="text-sm text-plaza-text-muted italic">
+            * PlazaNet is written in Go and works on any system that can run it,
+            but development and official deployment happen on Linux.
+        </h6>
     </section>
 
-    <section id="promo" class="promo-box">
-        <h2>Be part of the new plaza!</h2>
-        <p>PlazaNet is currently in development. Join our <b>Official Discord Server</b> and be the first to know when the Public Beta launches!</p>
-        <button onclick="window.location.href='https://discord.gg/xjYFtN3pCw/'">Join the Discord</button>
+    <!-- Promo -->
+    <section
+        id="promo"
+        class="bg-plaza-surface text-center px-5 py-12 rounded-xl2 mx-5 my-12 border border-plaza-divider"
+    >
+        <h2 class="text-3xl font-bold mb-3 text-plaza-primary">
+            Be part of the new plaza!
+        </h2>
+
+        <p class="mb-6 text-plaza-text-muted">
+            PlazaNet is currently in development. Join our
+            <b class="text-plaza-text">Official Discord Server</b> and be the first to know when
+            the Public Beta launches!
+        </p>
+
+        <button
+            onclick="location.href='https://discord.gg/xjYFtN3pCw/'"
+            class="bg-plaza-primary text-plaza-dark font-bold px-7 py-3 rounded-full hover:bg-plaza-secondary transition"
+        >
+            Join the Discord
+        </button>
     </section>
 
-    <footer>
-        &copy; 2025 PlazaNet • <a href="/about">About</a> • <a href="/">Return Home</a>
+    <footer class="text-center text-sm text-plaza-text-muted py-6 border-t border-plaza-divider">
+        &copy; 2026 PlazaNet •
+        <a href="/about" class="text-plaza-secondary hover:underline">About</a> •
+        <a href="/docs" class="text-plaza-secondary hover:underline">Docs</a> •
+        <a href="https://github.com/PlazaNetOrg/" class="text-plaza-secondary hover:underline">GitHub</a>
     </footer>
-</body>
 
+</body>
 </html>

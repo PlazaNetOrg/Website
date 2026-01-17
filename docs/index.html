@@ -1,185 +1,204 @@
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>PlazaNet Documentation</title>
-    <link href="https://fonts.googleapis.com/css2?family=Nunito:wght@400;700&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="/style.css">
-    <link rel="stylesheet" href="/docs/docs.css">
-    <link rel="icon" type="image/x-icon" href="/favicon.ico">
 
-    <!-- Highlight.js (for code highlighting) -->
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.11.1/styles/github.min.css">
+    <link rel="icon" href="/favicon.ico">
+    <link href="https://fonts.googleapis.com/css2?family=Nunito:wght@400;700&display=swap" rel="stylesheet">
+
+    <!-- Tailwind -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        "plaza-primary": "#3A9FF1",
+                        "plaza-secondary": "#64B7FF",
+                        "plaza-dark": "#0F172A",
+                        "plaza-surface": "#1E293B",
+                        "plaza-text": "#F1F5F9",
+                        "plaza-text-muted": "#94A3B8",
+                        "plaza-divider": "#334155",
+                    },
+                    fontFamily: {
+                        nunito: ["Nunito", "sans-serif"],
+                    },
+                    borderRadius: {
+                        xl2: "25px",
+                    },
+                },
+            },
+        }
+    </script>
+
+    <!-- Highlight.js -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.11.1/styles/github-dark.min.css">
     <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.11.1/highlight.min.js"></script>
     <script>hljs.highlightAll();</script>
 </head>
 
-<!-- Search Script -->
-<script>
-document.addEventListener("DOMContentLoaded", () => {
-    const searchInput = document.querySelector(".docs-search");
-    const main = document.querySelector(".docs-content");
+<body class="bg-plaza-dark text-plaza-text font-nunito">
 
-    const searchable = main.querySelectorAll("h1, h2, h3, p, li, code, pre");
+    <!-- Header -->
+    <header class="bg-plaza-surface border-b border-plaza-divider sticky top-0 z-50">
+        <div class="max-w-7xl mx-auto flex items-center gap-6 px-6 py-4">
+            <img
+                src="/assets/logo.svg"
+                alt="PlazaNet Logo"
+                class="w-10 cursor-pointer"
+                onclick="location.href='/'"
+            >
 
-    function clearHighlights() {
-        main.querySelectorAll("mark").forEach(mark => {
-            mark.replaceWith(...mark.childNodes);
-        });
-    }
+            <h1 class="text-xl font-bold text-plaza-primary">
+                PlazaNet Docs
+            </h1>
 
-    function highlight(text, query) {
-        if (!query) return text;
-        const pattern = new RegExp(`(${query.replace(/[.*+?^${}()|[\]\\]/g, '\\$&')})`, "gi");
-        return text.replace(pattern, '<mark>$1</mark>');
-    }
-
-    searchInput.addEventListener("input", () => {
-        const query = searchInput.value.trim().toLowerCase();
-        clearHighlights();
-
-        searchable.forEach(el => {
-            const text = el.textContent.toLowerCase();
-            const match = text.includes(query);
-
-            if (match) {
-                el.innerHTML = highlight(el.textContent, query);
-            }
-        });
-
-        const firstMatch = main.querySelector("mark");
-        if (firstMatch) firstMatch.scrollIntoView({ behavior: "smooth", block: "center" });
-    });
-});
-</script>
-
-<body>
-    <header class="docs-header">
-        <div class="docs-header-inner">
-            <img src="/assets/logo.svg" alt="PlazaNet Logo" onclick="window.location.href='/'">
-            <h1>PlazaNet Docs</h1>
-            <input type="text" placeholder="Search documentation..." class="docs-search">
+            <input
+                type="text"
+                placeholder="Search documentation..."
+                class="docs-search ml-auto w-64 bg-plaza-dark border border-plaza-divider rounded-full px-4 py-2 text-sm outline-none focus:ring-2 focus:ring-plaza-primary"
+            >
         </div>
     </header>
 
-    <div class="docs-wrapper">
-        <aside class="docs-sidebar">
-            <nav>
-                <h3>Getting Started</h3>
-                <ul>
-                    <li><a href="#introduction">Introduction</a></li>
+    <!-- Layout -->
+    <div class="max-w-7xl mx-auto flex gap-8 px-6 py-10">
+
+        <!-- Sidebar -->
+        <aside class="w-64 shrink-0 hidden md:block">
+            <nav class="bg-plaza-surface rounded-xl2 p-6 border border-plaza-divider sticky top-24">
+                <h3 class="text-sm uppercase tracking-wide text-plaza-text-muted mb-3">
+                    Getting Started
+                </h3>
+                <ul class="space-y-2 mb-6">
+                    <li>
+                        <a href="#introduction" class="hover:text-plaza-secondary">
+                            Introduction
+                        </a>
+                    </li>
                 </ul>
 
-                <h3>Accounts</h3>
-                <ul>
-                    <li><a href="#accounts-install">Installation</a></li>
+                <h3 class="text-sm uppercase tracking-wide text-plaza-text-muted mb-3">
+                    Accounts
+                </h3>
+                <ul class="space-y-2 mb-6">
+                    <li>
+                        <a href="#accounts-install" class="hover:text-plaza-secondary">
+                            Installation
+                        </a>
+                    </li>
                 </ul>
 
-                <h3>PlazaNet</h3>
+                <h3 class="text-sm uppercase tracking-wide text-plaza-text-muted">
+                    PlazaNet
+                </h3>
+                <ul class="space-y-2 mb-6">
+                    <li>
+                        <a href="#plazanet-install" class="hover:text-plaza-secondary">
+                            Installation
+                        </a>
+                    </li>
+                </ul>
             </nav>
         </aside>
 
-        <main class="docs-content">
-            <h1>Getting Started</h1>
+        <!-- Content -->
+        <main class="docs-content flex-1 space-y-12">
 
-            <section id="introduction">
-                <h2>Introduction</h2>
-                <p><b>PlazaNet</b> is a social network inspired by Miiverse, built using Python Flask. It’s designed for creative communities, allowing users to post, draw, and interact in themed hubs.</p>
+            <section>
+                <h1 class="text-4xl font-bold mb-4">
+                    Getting Started
+                </h1>
+
+                <div id="introduction" class="space-y-4">
+                    <h2 class="text-2xl font-semibold text-plaza-primary">
+                        Introduction
+                    </h2>
+                    <p class="text-plaza-text-muted">
+                        <b class="text-plaza-text">PlazaNet</b> is a social network inspired by Miiverse, built using
+                        Go. It’s designed for creative communities, allowing users to post, draw,
+                        and interact in themed hubs.
+                    </p>
+                </div>
             </section>
 
-            <h1><img src="/assets/logoAccounts.svg" width="64"> Accounts</h1>
-            <section id="accounts-install">
-                <h2>Installation</h2>
-                <p>The <b>PlazaNet Accounts</b> service handles user authentication and management. Follow the steps below to set it up locally.</p>
-
-                <h3>1. Create a working directory</h3>
-                <pre><code class="language-bash">mkdir plazanet && cd plazanet</code></pre>
-
-                <h3>2. Clone the repository</h3>
-                <pre><code class="language-bash">git clone https://github.com/PlazaNetOrg/Accounts accounts
-cd accounts</code></pre>
-
-                <h3>3. Install all requirements</h3>
-                <ul>
-                    <li><b>Python & pip:</b><br>
-                        <pre><code class="language-bash">sudo apt install python3 python3-pip</code></pre>
-                    </li>
-                    <li><b>Python dependencies:</b><br>
-                        <pre><code class="language-bash">pip install -r requirements.txt</code></pre>
-                    </li>
-                    <li><b>OpenSSL (for secret key generation):</b><br>
-                        <pre><code class="language-bash">sudo apt install openssl</code></pre>
-                    </li>
-                </ul>
-
-                <h3>4. Configure environment variables</h3>
-                <p>Rename the provided example configuration file:</p>
-                <pre><code class="language-bash">mv .env.example .env</code></pre>
-                <p>Then replace the placeholder values with your own. You can generate secure keys with OpenSSL:</p>
-                <pre><code class="language-bash">openssl rand -base64 32</code></pre>
-                <p>Adjust values in the .env file to customize. Below are recommended full examples for development and production (copy and adapt — do not show secrets to anyone!).</p>
-
-                <h4>Development `.env` (local)</h4>
-                <pre><code class="language-ini">APP_NAME=PlazaNet
-PLAZANET_ENABLE=true
-PLAZANET_DOMAIN=127.0.0.1:7593
-PLAZANET_ALLOWED_ORIGINS=http://127.0.0.1:7592,http://127.0.0.1:7593
-SECRET_KEY=dev-secret
-JWT_SECRET_KEY=dev-jwt-secret
-DATABASE_URL=sqlite:///plazanet.db
-FLASK_ENV=development
-JWT_TOKEN_LOCATION=cookies,headers
-JWT_ACCESS_COOKIE_NAME=access_token
-JWT_REFRESH_COOKIE_NAME=refresh_token
-JWT_COOKIE_CSRF_PROTECT=False
-JWT_ACCESS_TOKEN_EXPIRES=3600
-JWT_COOKIE_DOMAIN=127.0.0.1
-JWT_COOKIE_SECURE=False
-JWT_COOKIE_SAMESITE=Lax
-</code></pre>
-
-                <h4>Production `.env` (example)</h4>
-                <pre><code class="language-ini">APP_NAME=PlazaNet
-PLAZANET_ENABLE=true
-PLAZANET_DOMAIN=app.plazanet.org
-PLAZANET_ALLOWED_ORIGINS=https://accounts.plazanet.org,https://app.plazanet.org
-SECRET_KEY=GENERATE_WITH_OPENSSL
-JWT_SECRET_KEY=GENERATE_WITH_OPENSSL
-DATABASE_URL=sqlite:///plazanet.db
-FLASK_ENV=production
-JWT_TOKEN_LOCATION=cookies,headers
-JWT_ACCESS_COOKIE_NAME=access_token
-JWT_REFRESH_COOKIE_NAME=refresh_token
-JWT_COOKIE_CSRF_PROTECT=True
-JWT_ACCESS_TOKEN_EXPIRES=604800
-JWT_COOKIE_DOMAIN=.plazanet.org
-JWT_COOKIE_SECURE=True
-JWT_COOKIE_SAMESITE=None</code></pre>
-
-                <p><strong>Notes:</strong> generate strong values for <code>SECRET_KEY</code> and <code>JWT_SECRET_KEY</code> (e.g. <code>openssl rand -base64 32</code>) and never commit them. If you use cross-site cookies, set <code>JWT_COOKIE_DOMAIN</code> to a shared domain (e.g. <code>.plazanet.org</code>), <code>JWT_COOKIE_SAMESITE=None</code>, and ensure <code>JWT_COOKIE_SECURE=True</code> in production. Browsers require exact origins when <code>Access-Control-Allow-Credentials</code> is true (do not use <code>*</code>).</p>
-
-                <h3>5. Initialize the database</h3>
-                <p>Run the following commands to create and migrate the database schema:</p>
-                <pre><code class="language-bash">flask --app run.py db init
-flask --app run.py db migrate -m "Initial migration"
-flask --app run.py db upgrade</code></pre>
-
-                <h3>6. Start the server</h3>
-                <pre><code class="language-bash">python3 run.py</code></pre>
-
-                <p>Once the server starts, you can access it at: http://your-ip-or-domain:7592</p>
+            <h1 class="text-3xl font-bold flex items-center gap-3">
+                <img src="/assets/logoAccounts.svg" class="w-10"> Accounts
+            </h1>
+                
+            <section id="accounts-install" class="space-y-6">
+                <h2 class="text-2xl font-semibold text-plaza-primary">
+                    Installation
+                </h2>
+                <p>TODO*</p>
             </section>
 
-            <h1><img src="/assets/logo.svg" width="64"> PlazaNet</h1>
-            
-            <hr>
-            <footer>
-                &copy; 2025 PlazaNet • <a href="/">Return Home</a>
+            <h1 class="text-3xl font-bold flex items-center gap-3">
+                <img src="/assets/logo.svg" class="w-10"> PlazaNet
+            </h1>
+
+            <section id="plazanet-install" class="space-y-6">
+                <h2 class="text-2xl font-semibold text-plaza-primary">
+                    Installation
+                </h2>
+                <p>TODO*</p>
+            </section>
+
+            <section id="rewrite" class="space-y-6">
+                <p class="text-plaza-text-muted italic">
+                    * PlazaNet has been undergoing a full rewrite in Go since December 2025 (previously Python). 
+                    The existing documentation has been temporarily removed and will be gradually restored with updated Go-based instructions in the coming weeks/months.
+                </p>
+                <p class="text-plaza-text-muted">
+                    Stay tuned via GitHub: <a href="https://github.com/PlazaNetOrg/" class="text-plaza-secondary hover:underline">github.com/PlazaNetOrg</a>
+                </p>
+            </section>
+
+            <footer class="text-center text-sm text-plaza-text-muted py-6 border-t border-plaza-divider">
+                &copy; 2026 PlazaNet •
+                <a href="/about" class="text-plaza-secondary hover:underline">About</a> •
+                <a href="/docs" class="text-plaza-secondary hover:underline">Docs</a> •
+                <a href="https://github.com/PlazaNetOrg/" class="text-plaza-secondary hover:underline">GitHub</a>
             </footer>
         </main>
     </div>
-</body>
 
+    <!-- Search Script -->
+    <script>
+        document.addEventListener("DOMContentLoaded", () => {
+            const input = document.querySelector(".docs-search");
+            const content = document.querySelector(".docs-content");
+            const nodes = content.querySelectorAll("h1, h2, h3, p, li, code");
+
+            function clear() {
+                content.querySelectorAll("mark").forEach(m =>
+                    m.replaceWith(...m.childNodes)
+                );
+            }
+
+            input.addEventListener("input", () => {
+                const q = input.value.trim().toLowerCase();
+                clear();
+                if (!q) return;
+
+                nodes.forEach(el => {
+                    const text = el.textContent;
+                    if (text.toLowerCase().includes(q)) {
+                        el.innerHTML = text.replace(
+                            new RegExp(`(${q})`, "gi"),
+                            "<mark class='bg-plaza-primary text-plaza-dark rounded px-1'>$1</mark>"
+                        );
+                    }
+                });
+
+                const first = content.querySelector("mark");
+                if (first) first.scrollIntoView({ behavior: "smooth", block: "center" });
+            });
+        });
+    </script>
+
+</body>
 </html>

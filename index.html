@@ -1,55 +1,146 @@
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>PlazaNet - Your Social Plaza Awaits</title>
+
+    <link rel="icon" href="/favicon.ico">
     <link href="https://fonts.googleapis.com/css2?family=Nunito:wght@400;700&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="/style.css">
-    <link rel="icon" type="image/x-icon" href="/favicon.ico">
+
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        "plaza-primary": "#3A9FF1",
+                        "plaza-secondary": "#64B7FF",
+                        "plaza-dark": "#0F172A",
+                        "plaza-surface": "#1E293B",
+                        "plaza-text": "#F1F5F9",
+                        "plaza-text-muted": "#94A3B8",
+                        "plaza-divider": "#334155",
+                    },
+                    fontFamily: {
+                        nunito: ["Nunito", "sans-serif"],
+                    },
+                    borderRadius: {
+                        xl2: "25px",
+                    },
+                },
+            },
+        }
+    </script>
 </head>
 
-<body>
-    <header>
-        <img onclick="window.location.href='/'" src="/assets/logo.svg">
-        <h1>PlazaNet</h1>
-        <p>Where creativity and community connect — just like the good old Miiverse, but reimagined for today.</p>
-        <div class="hero-buttons">
-            <button onclick="window.location.href='#promo'">Join the Plaza</button>
-            <button onclick="window.location.href='/about'">Learn more</button>
+<body class="bg-plaza-dark font-nunito text-plaza-text">
+
+    <!-- Hero -->
+    <header class="bg-gradient-to-b from-plaza-primary to-plaza-secondary text-center px-5 py-16 rounded-b-xl2">
+        <img
+            src="/assets/logo.svg"
+            onclick="location.href='/'"
+            class="mx-auto w-1/2 md:w-1/5 cursor-pointer"
+        >
+
+        <h1 class="text-5xl font-bold mt-6">
+            PlazaNet
+        </h1>
+
+        <p class="mt-4 max-w-xl mx-auto text-lg text-plaza-text">
+            Where creativity and community connect — just like the good old Miiverse, but reimagined for today.
+        </p>
+
+        <div class="flex flex-wrap justify-center gap-4 mt-8">
+            <button
+                onclick="location.href='#promo'"
+                class="bg-plaza-dark text-plaza-primary font-bold px-7 py-3 rounded-full border border-plaza-divider hover:bg-plaza-surface transition"
+            >
+                Join the Plaza
+            </button>
+
+            <button
+                onclick="location.href='/about'"
+                class="bg-plaza-dark text-plaza-primary font-bold px-7 py-3 rounded-full border border-plaza-divider hover:bg-plaza-surface transition"
+            >
+                Learn more
+            </button>
         </div>
     </header>
 
-    <section class="features">
-        <div class="feature-card">
-            <h3>Communities</h3>
-            <p>Join hubs for your favorite games and connect with players worldwide.</p>
+    <!-- Features -->
+    <section class="flex flex-wrap justify-center gap-6 px-5 py-14">
+
+        <div class="bg-plaza-surface border border-plaza-divider rounded-xl2 w-64 p-6 text-center hover:-translate-y-1 transition">
+            <img class="mx-auto mb-3 w-16">
+            <h3 class="text-plaza-primary text-xl font-bold mb-2">
+                Communities
+            </h3>
+            <p class="text-plaza-text-muted">
+                Join hubs for your favorite games and connect with players worldwide.
+            </p>
         </div>
-        <div class="feature-card">
-            <h3>Draw & Post</h3>
-            <p>Share your doodles with friends and other people on the plaza.</p>
+
+        <div class="bg-plaza-surface border border-plaza-divider rounded-xl2 w-64 p-6 text-center hover:-translate-y-1 transition">
+            <img class="mx-auto mb-3 w-16">
+            <h3 class="text-plaza-primary text-xl font-bold mb-2">
+                Draw & Post
+            </h3>
+            <p class="text-plaza-text-muted">
+                Share your doodles with friends and other people on the plaza.
+            </p>
         </div>
-        <div class="feature-card">
-            <h3>Chat & React</h3>
-            <p>Interact with posts, comment, and give "Woahs" to show love.</p>
+
+        <div class="bg-plaza-surface border border-plaza-divider rounded-xl2 w-64 p-6 text-center hover:-translate-y-1 transition">
+            <img class="mx-auto mb-3 w-16">
+            <h3 class="text-plaza-primary text-xl font-bold mb-2">
+                Chat & React
+            </h3>
+            <p class="text-plaza-text-muted">
+                Interact with posts, comment, and give "Woahs".
+            </p>
         </div>
-        <div class="feature-card">
-            <img src="/assets/features/egghead-pal.svg" width="64" alt="Egghead">
-            <h3>Design Your Pal</h3>
-            <p>Create a unique 2D character to represent yourself across the Plaza. You can even be an Egg!</p>
+
+        <div class="bg-plaza-surface border border-plaza-divider rounded-xl2 w-64 p-6 text-center hover:-translate-y-1 transition">
+            <img class="mx-auto mb-3 w-16">
+            <h3 class="text-plaza-primary text-xl font-bold mb-2">
+                Design Your Pal
+            </h3>
+            <p class="text-plaza-text-muted">
+                Create a unique 2D character — even an Egg!
+            </p>
         </div>
+
     </section>
 
-    <section id="promo" class="promo-box">
-        <h2>Be part of the new plaza!</h2>
-        <p>PlazaNet is currently in development. Join our <b>Official Discord Server</b> and be the first to know when the Public Beta launches!</p>
-        <button onclick="window.location.href='https://discord.gg/xjYFtN3pCw/'">Join the Discord</button>
+    <!-- Promo -->
+    <section
+        id="promo"
+        class="bg-plaza-surface text-center px-5 py-12 rounded-xl2 mx-5 my-10 border border-plaza-divider"
+    >
+        <h2 class="text-3xl font-bold mb-3 text-plaza-primary">
+            Be part of the new plaza!
+        </h2>
+
+        <p class="mb-6 text-plaza-text-muted">
+            Join our <b class="text-plaza-text">Official Discord Server</b> and be the first to know when Public Beta launches!
+        </p>
+
+        <button
+            onclick="location.href='https://discord.gg/xjYFtN3pCw/'"
+            class="bg-plaza-primary text-plaza-dark font-bold px-7 py-3 rounded-full hover:bg-plaza-secondary transition"
+        >
+            Join the Discord
+        </button>
     </section>
 
-    <footer>
-        &copy; 2025 PlazaNet • <a href="/about">About</a> • <a href="/docs">Docs</a> • <a href="https://github.com/PlazaNetOrg/">Github</a>
+    <footer class="text-center text-sm text-plaza-text-muted py-6 border-t border-plaza-divider">
+        &copy; 2026 PlazaNet •
+        <a href="/about" class="text-plaza-secondary hover:underline">About</a> •
+        <a href="/docs" class="text-plaza-secondary hover:underline">Docs</a> •
+        <a href="https://github.com/PlazaNetOrg/" class="text-plaza-secondary hover:underline">GitHub</a>
     </footer>
-</body>
 
+</body>
 </html>
