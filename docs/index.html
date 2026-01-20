@@ -84,6 +84,11 @@
                             Installation
                         </a>
                     </li>
+                    <li>
+                        <a href="#accounts-development" class="hover:text-plaza-secondary">
+                            Development
+                        </a>
+                    </li>
                 </ul>
 
                 <h3 class="text-sm uppercase tracking-wide text-plaza-text-muted">
@@ -130,7 +135,7 @@
                 </div>
             </section>
 
-            <h1 class="text-3xl font-bold flex items-center gap-3">
+            <h1 id="accounts" class="text-3xl font-bold flex items-center gap-3">
                 <img src="/assets/logoAccounts.svg" class="w-10"> Accounts
             </h1>
 
@@ -141,7 +146,78 @@
                 <p>TODO*</p>
             </section>
 
-            <h1 class="text-3xl font-bold flex items-center gap-3">
+            <section id="accounts-development" class="space-y-6">
+                <h2 class="text-2xl font-semibold text-plaza-primary">
+                    Development
+                </h2>
+                <h3 class="text-xl font-semibold text-plaza-secondary mt-8">
+                    Prerequisites
+                </h3>
+                <ul class="list-disc pl-6 space-y-2 text-plaza-text-muted">
+                    <li>Go 1.25.5 or newer (recommended: latest stable version)</li>
+                    <li>Git</li>
+                </ul>
+
+                <h3 class="text-xl font-semibold text-plaza-secondary mt-8">
+                    Setup Go
+                </h3>
+                <ol class="list-decimal pl-6 space-y-4">
+                    <li>
+                        <p><strong>Install Go</strong></p>
+                        <p class="text-plaza-text-muted mt-1">
+                            Download and install the latest version from the official site:
+                            <a href="https://go.dev/dl/"
+                                class="text-plaza-secondary hover:underline">https://go.dev/dl/</a>
+                        </p>
+                        <p class="text-sm text-plaza-text-muted mt-2">
+                            After installation, verify it works:
+                        </p>
+                        <pre><code class="language-bash">$ go version
+            go version go1.23.1 linux/amd64   # example output</code></pre>
+                    </li>
+
+                    <li>
+                        <p><strong>Clone the repository</strong></p>
+                        <pre><code class="language-bash">git clone https://github.com/PlazaNetOrg/Accounts.git
+            cd Accounts</code></pre>
+                    </li>
+
+                    <li>
+                        <p><strong>Download dependencies</strong></p>
+                        <pre><code class="language-bash">go mod download</code></pre>
+                    </li>
+                </ol>
+
+                <h3 class="text-xl font-semibold text-plaza-secondary mt-10">
+                    Configuration
+                </h3>
+                <p class="text-plaza-text-muted">
+                    Copy the example environment file and adjust settings:
+                </p>
+                <pre><code class="language-bash">cp .env.example .env</code></pre>
+                <p class="mt-2 text-sm text-plaza-text-muted">
+                    Most important variables:
+                </p>
+                <ul class="list-disc pl-6 space-y-1 text-sm text-plaza-text-muted">
+                    <li><code><b>JWT_SECRET</b></code> — Random secure string (generate with: <b>openssl rand -base64
+                            48</b>)</li>
+                    <li><code><b>PORT</b></code> — Server port (default: 792)</li>
+                    <li><code><b>PLAZANET_URL</b></code> — Your PlazaNet Instance URL (if you plan to run one) (e.g.:
+                        <b>https://app.plazanet.org/</b>)</li>
+                    <li><code><b>AUTH_SECURE</b></code> — Controls if cookies are marked as secure (In development
+                        environment set to <b>false</b>, otherwise cookies won't be sent)</li>
+                </ul>
+
+                <h3 class="text-xl font-semibold text-plaza-secondary mt-10">
+                    Running the Server
+                </h3>
+                <p class="text-plaza-text-muted">
+                    The simplest way to start the development server is using Go’s built-in runner:
+                </p>
+                <pre><code class="language-bash">go run cmd/main.go</code></pre>
+            </section>
+
+            <h1 id="plazanet" class="text-3xl font-bold flex items-center gap-3">
                 <img src="/assets/logo.svg" class="w-10"> PlazaNet
             </h1>
 
@@ -152,13 +228,13 @@
                 <p>TODO*</p>
             </section>
 
-            <h1 class="text-3xl font-bold flex items-center gap-3">
+            <h1 id="gameplaza" class="text-3xl font-bold flex items-center gap-3">
                 GamePlaza
             </h1>
 
             <section id="gameplaza-dev" class="space-y-8">
                 <h2 class="text-2xl font-semibold text-plaza-primary">
-                    Development Setup
+                    Development
                 </h2>
             </section>
 

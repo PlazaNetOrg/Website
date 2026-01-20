@@ -37,20 +37,58 @@
     }
 
     @keyframes pulse-slow {
-      0%, 100% { opacity: 0.15; }
-      50%      { opacity: 0.45; }
+
+      0%,
+      100% {
+        opacity: 0.15;
+      }
+
+      50% {
+        opacity: 0.45;
+      }
     }
 
     @keyframes float {
-      0%, 100% { transform: translate(0, 0) scale(1); }
-      50%      { transform: translate(20px, -30px) scale(1.1); }
+
+      0%,
+      100% {
+        transform: translate(0, 0) scale(1);
+      }
+
+      50% {
+        transform: translate(20px, -30px) scale(1.1);
+      }
     }
 
-    .orb-1 { background: #3A9FF1; width: 600px; height: 600px; top: -20%; left: -15%; animation: pulse-slow 14s infinite, float 22s infinite; }
-    .orb-2 { background: #64B7FF; width: 800px; height: 800px; bottom: -25%; right: -20%; animation: pulse-slow 18s infinite reverse, float 26s infinite reverse; }
-    .orb-3 { background: #60A5FA33; width: 500px; height: 500px; top: 40%; left: 60%; animation: pulse-slow 20s infinite; }
+    .orb-1 {
+      background: #3A9FF1;
+      width: 600px;
+      height: 600px;
+      top: -20%;
+      left: -15%;
+      animation: pulse-slow 14s infinite, float 22s infinite;
+    }
+
+    .orb-2 {
+      background: #64B7FF;
+      width: 800px;
+      height: 800px;
+      bottom: -25%;
+      right: -20%;
+      animation: pulse-slow 18s infinite reverse, float 26s infinite reverse;
+    }
+
+    .orb-3 {
+      background: #60A5FA33;
+      width: 500px;
+      height: 500px;
+      top: 40%;
+      left: 60%;
+      animation: pulse-slow 20s infinite;
+    }
   </style>
 </head>
+
 <body class="bg-plaza-dark font-nunito text-plaza-text relative overflow-x-hidden min-h-screen flex flex-col">
 
   <div class="fixed inset-0 pointer-events-none">
@@ -62,14 +100,12 @@
   <header class="relative text-center px-5 pt-16 pb-24 md:pb-32 overflow-hidden">
     <div class="relative z-10">
       <div class="mx-auto max-w-xs md:max-w-md mb-10">
-        <img 
-          src="https://via.placeholder.com/480x180/1E293B/60A5FA?text=GamePlaza" 
-          alt="GamePlaza Logo"
-          class="mx-auto w-full drop-shadow-2xl"
-        >
+        <img src="https://via.placeholder.com/480x180/1E293B/60A5FA?text=GamePlaza" alt="GamePlaza Logo"
+          class="mx-auto w-full drop-shadow-2xl">
       </div>
 
-      <h1 class="text-5xl md:text-7xl font-extrabold tracking-tight bg-gradient-to-r from-plaza-primary to-plaza-secondary bg-clip-text text-transparent">
+      <h1
+        class="text-5xl md:text-7xl font-extrabold tracking-tight bg-gradient-to-r from-plaza-primary to-plaza-secondary bg-clip-text text-transparent">
         GamePlaza
       </h1>
 
@@ -79,32 +115,42 @@
       </p>
 
       <div class="flex flex-wrap justify-center gap-5 mt-10">
-        <a href="https://github.com/PlazaNetOrg/GamePlaza"
-           class="bg-gradient-to-r from-plaza-primary to-plaza-secondary text-white font-bold px-9 py-4 rounded-full shadow-lg hover:shadow-xl hover:scale-105 transition-all duration-300">
-          View on GitHub
-        </a>
+        <button
+          class="bg-gradient-to-r from-plaza-secondary to-plaza-primary text-white font-bold px-9 py-4 rounded-full shadow-lg opacity-50 pointer-events-none">
+          Download &#8594;
+        </button>
+        <button onclick="location.href='#dev'"
+          class="bg-gradient-to-r from-plaza-secondary to-plaza-primary text-white font-bold px-9 py-4 rounded-full">
+          Help out &#8594;
+        </button>
       </div>
+
+      <p class="text-plaza-text-muted">* The project is currently paused. The development focuses on PlazaNet and Accounts.</p>
     </div>
   </header>
 
   <section class="relative px-5 py-20">
     <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-7 max-w-7xl mx-auto">
-      <div class="bg-plaza-surface/70 backdrop-blur-md border border-plaza-divider/50 rounded-3xl p-8 text-center hover:-translate-y-2 transition-all duration-300">
+      <div
+        class="bg-plaza-surface/70 backdrop-blur-md border border-plaza-divider/50 rounded-3xl p-8 text-center hover:-translate-y-2 transition-all duration-300">
         <div class="text-5xl mb-5">🎮</div>
         <h3 class="text-2xl font-bold text-plaza-primary mb-3">All Your Games</h3>
         <p class="text-plaza-text-muted">Native titles, emulators, ROMs — one clean library.</p>
       </div>
-      <div class="bg-plaza-surface/70 backdrop-blur-md border border-plaza-divider/50 rounded-3xl p-8 text-center hover:-translate-y-2 transition-all duration-300">
+      <div
+        class="bg-plaza-surface/70 backdrop-blur-md border border-plaza-divider/50 rounded-3xl p-8 text-center hover:-translate-y-2 transition-all duration-300">
         <div class="text-5xl mb-5">👥</div>
         <h3 class="text-2xl font-bold text-plaza-primary mb-3">Friends</h3>
         <p class="text-plaza-text-muted">See who's online, what they're playing, right in the launcher.</p>
       </div>
-      <div class="bg-plaza-surface/70 backdrop-blur-md border border-plaza-divider/50 rounded-3xl p-8 text-center hover:-translate-y-2 transition-all duration-300">
+      <div
+        class="bg-plaza-surface/70 backdrop-blur-md border border-plaza-divider/50 rounded-3xl p-8 text-center hover:-translate-y-2 transition-all duration-300">
         <div class="text-5xl mb-5">🖌️</div>
         <h3 class="text-2xl font-bold text-plaza-primary mb-3">Your Pal Shines</h3>
         <p class="text-plaza-text-muted">Custom 3D avatar follows you from PlazaNet to GamePlaza.</p>
       </div>
-      <div class="bg-plaza-surface/70 backdrop-blur-md border border-plaza-divider/50 rounded-3xl p-8 text-center hover:-translate-y-2 transition-all duration-300">
+      <div
+        class="bg-plaza-surface/70 backdrop-blur-md border border-plaza-divider/50 rounded-3xl p-8 text-center hover:-translate-y-2 transition-all duration-300">
         <div class="text-5xl mb-5">📱</div>
         <h3 class="text-2xl font-bold text-plaza-primary mb-3">Cross-Platform</h3>
         <p class="text-plaza-text-muted">Windows, Linux, Android — built with Godot.</p>
@@ -117,27 +163,42 @@
       See It In Action
     </h2>
     <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 max-w-7xl mx-auto">
-        <div class="group relative rounded-3xl overflow-hidden border-2 border-plaza-divider/40 shadow-2xl hover:scale-[1.03] transition-all duration-500">
-            <img src="https://placehold.co/1200x675/0a1428/60a5fa/png?text=GamePlaza+Library" alt="Library view" class="w-full h-auto transition-transform duration-700 group-hover:scale-110">
-            <div class="absolute inset-0 bg-gradient-to-t from-plaza-dark/80 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500"></div>
-            <p class="absolute bottom-6 left-6 right-6 text-center text-lg font-medium drop-shadow-lg">Your games, beautifully organized</p>
+      <div
+        class="group relative rounded-3xl overflow-hidden border-2 border-plaza-divider/40 shadow-2xl hover:scale-[1.03] transition-all duration-500">
+        <img src="https://placehold.co/1200x675/1e293b/3b82f6/png?text=Friends+Panel" alt="Friends panel"
+          class="w-full h-auto transition-transform duration-700 group-hover:scale-110">
+        <div
+          class="absolute inset-0 bg-gradient-to-t from-plaza-dark/80 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500">
         </div>
+        <p class="absolute bottom-6 left-6 right-6 text-center text-lg font-medium drop-shadow-lg">Real-time friends &
+          activity</p>
+      </div>
 
-        <div class="group relative rounded-3xl overflow-hidden border-2 border-plaza-divider/40 shadow-2xl hover:scale-[1.03] transition-all duration-500">
-            <img src="https://placehold.co/1200x675/1e293b/3b82f6/png?text=Friends+Panel" alt="Friends panel" class="w-full h-auto transition-transform duration-700 group-hover:scale-110">
-            <div class="absolute inset-0 bg-gradient-to-t from-plaza-dark/80 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500"></div>
-            <p class="absolute bottom-6 left-6 right-6 text-center text-lg font-medium drop-shadow-lg">Real-time friends & activity</p>
+      <div
+        class="group relative rounded-3xl overflow-hidden border-2 border-plaza-divider/40 shadow-2xl transform scale-110 hover:scale-[1.13] transition-all duration-500">
+        <img src="https://placehold.co/1200x675/0a1428/60a5fa/png?text=GamePlaza+Library" alt="Library view"
+          class="w-full h-auto transition-transform duration-700 group-hover:scale-110">
+        <div
+          class="absolute inset-0 bg-gradient-to-t from-plaza-dark/80 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500">
         </div>
+        <p class="absolute bottom-6 left-6 right-6 text-center text-lg font-medium drop-shadow-lg">Your games,
+          beautifully organized</p>
+      </div>
 
-        <div class="group relative rounded-3xl overflow-hidden border-2 border-plaza-divider/40 shadow-2xl hover:scale-[1.03] transition-all duration-500">
-            <img src="https://placehold.co/1200x675/0f1e2e/5eead4/png?text=Pal+Preview" alt="Pal preview" class="w-full h-auto transition-transform duration-700 group-hover:scale-110">
-            <div class="absolute inset-0 bg-gradient-to-t from-plaza-dark/80 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500"></div>
-            <p class="absolute bottom-6 left-6 right-6 text-center text-lg font-medium drop-shadow-lg">Your 3D Pal right at home</p>
+      <div
+        class="group relative rounded-3xl overflow-hidden border-2 border-plaza-divider/40 shadow-2xl hover:scale-[1.03] transition-all duration-500">
+        <img src="https://placehold.co/1200x675/0f1e2e/5eead4/png?text=Pal+Preview" alt="Pal preview"
+          class="w-full h-auto transition-transform duration-700 group-hover:scale-110">
+        <div
+          class="absolute inset-0 bg-gradient-to-t from-plaza-dark/80 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500">
         </div>
+        <p class="absolute bottom-6 left-6 right-6 text-center text-lg font-medium drop-shadow-lg">Your 3D Pal right at
+          home</p>
+      </div>
     </div>
   </section>
 
-  <section class="px-5 py-24 text-center">
+  <!-- <section class="px-5 py-24 text-center">
     <h2 class="text-4xl md:text-5xl font-bold mb-6 text-plaza-primary">
       Ready to Play Together?
     </h2>
@@ -145,38 +206,32 @@
       Join the community, and help shape the future of social gaming.
     </p>
     <div class="flex flex-wrap justify-center gap-6">
-      <a href="https://discord.gg/xjYFtN3pCw"
-         class="bg-gradient-to-r from-plaza-primary to-plaza-secondary text-white font-bold text-lg px-10 py-5 rounded-full shadow-xl hover:shadow-2xl hover:scale-105 transition-all duration-300">
-        Join Discord
-      </a>
-      <a href="https://github.com/PlazaNetOrg/GamePlaza"
-         class="bg-plaza-surface/70 backdrop-blur border-2 border-plaza-primary/50 text-plaza-primary font-bold text-lg px-10 py-5 rounded-full hover:bg-plaza-surface transition-all duration-300">
-        View Source on GitHub
-      </a>
+      <button href="https://plazanet.org/downloads#gameplaza"
+         class="bg-plaza-primary text-plaza-dark font-bold px-7 py-3 rounded-full hover:bg-plaza-secondary transition">
+        Download &#8594;
+      </button>
     </div>
-  </section>
-    <section class="px-5 py-24 text-center bg-gradient-to-b from-plaza-dark/60 via-transparent to-plaza-dark/60">
+  </section> -->
+  <section id="dev" class="px-5 py-24 text-center bg-gradient-to-b from-plaza-dark/60 via-transparent to-plaza-dark/60">
     <h2 class="text-4xl md:text-5xl font-bold mb-6 text-plaza-primary">
-        Ready to Test GamePlaza?
+      Ready to Test/Develop GamePlaza?
     </h2>
     <p class="text-xl text-plaza-text-muted max-w-3xl mx-auto mb-10">
-        The project is currently paused so early builds will not be released for testing in the near.<br>
-        If you want, set up the launcher yourself, report bugs, suggest features, and shape the future of social gaming.
+      The project is currently paused so early builds will not be released for testing in the near future.<br>
+      If you want, set up the launcher yourself, report bugs, suggest features, and shape the future of social gaming.
     </p>
-    <a href="/docs#gameplaza-dev"
-        class="inline-flex items-center bg-gradient-to-r from-plaza-primary to-plaza-secondary text-white font-bold text-lg px-12 py-5 rounded-full shadow-xl hover:shadow-2xl hover:scale-105 transition-all duration-300">
-        <span>Read Development Guide & Start Testing</span>
-        <svg class="ml-3 w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
-        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 8l4 4m0 0l-4 4m4-4H3"></path>
-        </svg>
-    </a>
+    <button onclick="location.href='/docs#gameplaza-dev'"
+      class="bg-plaza-primary text-plaza-dark font-bold px-7 py-3 rounded-full hover:bg-plaza-secondary transition">
+      Start Testing &#8594;
+    </button>
     <p class="mt-6 text-plaza-text-muted text-lg">
-        Need help? Join the <a href="https://discord.gg/xjYFtN3pCw" class="text-plaza-secondary hover:underline">Discord</a> — the community is waiting!
+      Need help? Join the <a href="https://discord.gg/xjYFtN3pCw"
+        class="text-plaza-secondary hover:underline">Discord</a> — the community is waiting!
     </p>
-    </section>
+  </section>
 
   <footer class="mt-auto text-center text-sm text-plaza-text-muted py-10 border-t border-plaza-divider/50">
-    © 2026 PlazaNet •
+    &copy; 2026 PlazaNet •
     <a href="/about" class="hover:text-plaza-secondary transition">About</a> •
     <a href="/docs#gameplaza" class="hover:text-plaza-secondary transition">GamePlaza Docs</a> •
     <a href="https://github.com/PlazaNetOrg/GamePlaza" class="hover:text-plaza-secondary transition">GitHub</a>
