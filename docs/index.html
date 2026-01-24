@@ -1,286 +1,287 @@
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>PlazaNet Documentation</title>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>PlazaNet Docs</title>
 
-    <link rel="icon" href="/favicon.ico">
-    <link href="https://fonts.googleapis.com/css2?family=Nunito:wght@400;700&display=swap" rel="stylesheet">
+  <!-- Fonts -->
+  <link href="https://fonts.googleapis.com/css2?family=Nunito:wght@400;600;700&display=swap" rel="stylesheet">
 
-    <!-- Tailwind -->
-    <script src="https://cdn.tailwindcss.com"></script>
-    <script>
-        tailwind.config = {
-            theme: {
-                extend: {
-                    colors: {
-                        "plaza-primary": "#3A9FF1",
-                        "plaza-secondary": "#64B7FF",
-                        "plaza-dark": "#0F172A",
-                        "plaza-surface": "#1E293B",
-                        "plaza-text": "#F1F5F9",
-                        "plaza-text-muted": "#94A3B8",
-                        "plaza-divider": "#334155",
-                    },
-                    fontFamily: {
-                        nunito: ["Nunito", "sans-serif"],
-                    },
-                    borderRadius: {
-                        xl2: "25px",
-                    },
-                },
-            },
-        }
-    </script>
+  <!-- Tailwind -->
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          colors: {
+            primary: "#3A9FF1",
+            secondary: "#64B7FF",
+            dark: "#0F172A",
+            surface: "#1E293B",
+            text: "#F1F5F9",
+            muted: "#94A3B8",
+            divider: "#334155",
+          },
+          fontFamily: {
+            nunito: ["Nunito", "sans-serif"],
+          },
+          borderRadius: {
+            xl2: "1.5rem",
+          },
+        },
+      },
+    };
+  </script>
 
-    <!-- Highlight.js -->
-    <link rel="stylesheet"
-        href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.11.1/styles/github-dark.min.css">
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.11.1/highlight.min.js"></script>
-    <script>hljs.highlightAll();</script>
+  <!-- Highlight.js -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.11.1/styles/github-dark.min.css">
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.11.1/highlight.min.js"></script>
+  <script>hljs.highlightAll();</script>
 </head>
 
-<body class="bg-plaza-dark text-plaza-text font-nunito">
+<body class="bg-dark text-text font-nunito">
 
-    <!-- Header -->
-    <header class="bg-plaza-surface border-b border-plaza-divider sticky top-0 z-50">
-        <div class="max-w-7xl mx-auto flex items-center gap-6 px-6 py-4">
-            <img src="/assets/logo.svg" alt="PlazaNet Logo" class="w-10 cursor-pointer" onclick="location.href='/'">
+<!-- Header -->
+<header class="sticky top-0 z-50 bg-surface border-b border-divider">
+  <div class="max-w-7xl mx-auto flex items-center gap-4 px-4 py-3">
 
-            <h1 class="text-xl font-bold text-plaza-primary">
-                PlazaNet Docs
-            </h1>
+    <button id="menuBtn" class="md:hidden text-primary">
+      ☰
+    </button>
 
-            <input type="text" placeholder="Search documentation..."
-                class="docs-search ml-auto w-64 bg-plaza-dark border border-plaza-divider rounded-full px-4 py-2 text-sm outline-none focus:ring-2 focus:ring-plaza-primary">
-        </div>
-    </header>
+    <img src="/assets/logo.svg" class="w-9" />
 
-    <!-- Layout -->
-    <div class="max-w-7xl mx-auto flex gap-8 px-6 py-10">
+    <h1 class="font-bold text-lg text-primary">PlazaNet Docs</h1>
 
-        <!-- Sidebar -->
-        <aside class="w-64 shrink-0 hidden md:block">
-            <nav class="bg-plaza-surface rounded-xl2 p-6 border border-plaza-divider sticky top-24">
-                <h3 class="text-sm uppercase tracking-wide text-plaza-text-muted mb-3">
-                    Getting Started
-                </h3>
-                <ul class="space-y-2 mb-6">
-                    <li>
-                        <a href="#introduction" class="hover:text-plaza-secondary">
-                            Introduction
-                        </a>
-                    </li>
-                </ul>
-
-                <h3 class="text-sm uppercase tracking-wide text-plaza-text-muted mb-3">
-                    Accounts
-                </h3>
-                <ul class="space-y-2 mb-6">
-                    <li>
-                        <a href="#accounts-install" class="hover:text-plaza-secondary">
-                            Installation
-                        </a>
-                    </li>
-                    <li>
-                        <a href="#accounts-development" class="hover:text-plaza-secondary">
-                            Development
-                        </a>
-                    </li>
-                </ul>
-
-                <h3 class="text-sm uppercase tracking-wide text-plaza-text-muted">
-                    PlazaNet
-                </h3>
-                <ul class="space-y-2 mb-6">
-                    <li>
-                        <a href="#plazanet-install" class="hover:text-plaza-secondary">
-                            Installation
-                        </a>
-                    </li>
-                </ul>
-
-                <h3 class="text-sm uppercase tracking-wide text-plaza-text-muted">
-                    GamePlaza
-                </h3>
-                <ul class="space-y-2 mb-6">
-                    <li>
-                        <a href="#plazanet-dev" class="hover:text-plaza-secondary">
-                            Development
-                        </a>
-                    </li>
-                </ul>
-            </nav>
-        </aside>
-
-        <!-- Content -->
-        <main class="docs-content flex-1 space-y-12">
-
-            <section>
-                <h1 class="text-4xl font-bold mb-4">
-                    Getting Started
-                </h1>
-
-                <div id="introduction" class="space-y-4">
-                    <h2 class="text-2xl font-semibold text-plaza-primary">
-                        Introduction
-                    </h2>
-                    <p class="text-plaza-text-muted">
-                        <b class="text-plaza-text">PlazaNet</b> is a social network inspired by Miiverse, built using
-                        Go. It’s designed for creative communities, allowing users to post, draw,
-                        and interact in themed hubs.
-                    </p>
-                </div>
-            </section>
-
-            <h1 id="accounts" class="text-3xl font-bold flex items-center gap-3">
-                <img src="/assets/logoAccounts.svg" class="w-10"> Accounts
-            </h1>
-
-            <section id="accounts-install" class="space-y-6">
-                <h2 class="text-2xl font-semibold text-plaza-primary">
-                    Installation
-                </h2>
-                <p>TODO*</p>
-            </section>
-
-            <section id="accounts-development" class="space-y-6">
-                <h2 class="text-2xl font-semibold text-plaza-primary">
-                    Development
-                </h2>
-                <h3 class="text-xl font-semibold text-plaza-secondary mt-8">
-                    Prerequisites
-                </h3>
-                <ul class="list-disc pl-6 space-y-2 text-plaza-text-muted">
-                    <li>Go 1.25.5 or newer (recommended: latest stable version)</li>
-                    <li>Git</li>
-                </ul>
-
-                <h3 class="text-xl font-semibold text-plaza-secondary mt-8">
-                    Setup Go
-                </h3>
-                <ol class="list-decimal pl-6 space-y-4">
-                    <li>
-                        <p><strong>Install Go</strong></p>
-                        <p class="text-plaza-text-muted mt-1">
-                            Download and install the latest version from the official site:
-                            <a href="https://go.dev/dl/"
-                                class="text-plaza-secondary hover:underline">https://go.dev/dl/</a>
-                        </p>
-                        <p class="text-sm text-plaza-text-muted mt-2">
-                            After installation, verify it works:
-                        </p>
-                        <pre><code class="language-bash">$ go version
-            go version go1.23.1 linux/amd64   # example output</code></pre>
-                    </li>
-
-                    <li>
-                        <p><strong>Clone the repository</strong></p>
-                        <pre><code class="language-bash">git clone https://github.com/PlazaNetOrg/Accounts.git
-            cd Accounts</code></pre>
-                    </li>
-
-                    <li>
-                        <p><strong>Download dependencies</strong></p>
-                        <pre><code class="language-bash">go mod download</code></pre>
-                    </li>
-                </ol>
-
-                <h3 class="text-xl font-semibold text-plaza-secondary mt-10">
-                    Configuration
-                </h3>
-                <p class="text-plaza-text-muted">
-                    Copy the example environment file and adjust settings:
-                </p>
-                <pre><code class="language-bash">cp .env.example .env</code></pre>
-                <p class="mt-2 text-sm text-plaza-text-muted">
-                    Most important variables:
-                </p>
-                <ul class="list-disc pl-6 space-y-1 text-sm text-plaza-text-muted">
-                    <li><code><b>JWT_SECRET</b></code> — Random secure string (generate with: <b>openssl rand -base64
-                            48</b>)</li>
-                    <li><code><b>PORT</b></code> — Server port (default: 792)</li>
-                    <li><code><b>PLAZANET_URL</b></code> — Your PlazaNet Instance URL (if you plan to run one) (e.g.:
-                        <b>https://app.plazanet.org/</b>)</li>
-                    <li><code><b>AUTH_SECURE</b></code> — Controls if cookies are marked as secure (In development
-                        environment set to <b>false</b>, otherwise cookies won't be sent)</li>
-                </ul>
-
-                <h3 class="text-xl font-semibold text-plaza-secondary mt-10">
-                    Running the Server
-                </h3>
-                <p class="text-plaza-text-muted">
-                    The simplest way to start the development server is using Go’s built-in runner:
-                </p>
-                <pre><code class="language-bash">go run cmd/main.go</code></pre>
-            </section>
-
-            <h1 id="plazanet" class="text-3xl font-bold flex items-center gap-3">
-                <img src="/assets/logo.svg" class="w-10"> PlazaNet
-            </h1>
-
-            <section id="plazanet-install" class="space-y-6">
-                <h2 class="text-2xl font-semibold text-plaza-primary">
-                    Installation
-                </h2>
-                <p>TODO*</p>
-            </section>
-
-            <h1 id="gameplaza" class="text-3xl font-bold flex items-center gap-3">
-                GamePlaza
-            </h1>
-
-            <section id="gameplaza-dev" class="space-y-8">
-                <h2 class="text-2xl font-semibold text-plaza-primary">
-                    Development
-                </h2>
-            </section>
-
-            <footer class="text-center text-sm text-plaza-text-muted py-6 border-t border-plaza-divider">
-                &copy; 2026 PlazaNet •
-                <a href="/about" class="text-plaza-secondary hover:underline">About</a> •
-                <a href="/docs" class="text-plaza-secondary hover:underline">Docs</a> •
-                <a href="https://github.com/PlazaNetOrg/" class="text-plaza-secondary hover:underline">GitHub</a>
-            </footer>
-        </main>
+    <div class="ml-auto hidden sm:block">
+      <input
+        type="text"
+        placeholder="Search…"
+        class="docs-search bg-dark border border-divider rounded-full px-4 py-1.5 text-sm focus:ring-2 focus:ring-primary outline-none"
+      />
     </div>
 
-    <!-- Search Script -->
-    <script>
-        document.addEventListener("DOMContentLoaded", () => {
-            const input = document.querySelector(".docs-search");
-            const content = document.querySelector(".docs-content");
-            const nodes = content.querySelectorAll("h1, h2, h3, p, li, code");
+  </div>
+</header>
 
-            function clear() {
-                content.querySelectorAll("mark").forEach(m =>
-                    m.replaceWith(...m.childNodes)
-                );
-            }
+<!-- Mobile Sidebar Overlay -->
+<div id="overlay" class="fixed inset-0 bg-black/40 hidden z-40"></div>
 
-            input.addEventListener("input", () => {
-                const q = input.value.trim().toLowerCase();
-                clear();
-                if (!q) return;
+<!-- Layout -->
+<div class="max-w-7xl mx-auto flex relative">
 
-                nodes.forEach(el => {
-                    const text = el.textContent;
-                    if (text.toLowerCase().includes(q)) {
-                        el.innerHTML = text.replace(
-                            new RegExp(`(${q})`, "gi"),
-                            "<mark class='bg-plaza-primary text-plaza-dark rounded px-1'>$1</mark>"
-                        );
-                    }
-                });
+<!-- Sidebar -->
+<aside
+  id="sidebar"
+  class="fixed md:static inset-y-0 left-0 w-64 bg-surface border-r border-divider p-5 transform -translate-x-full md:translate-x-0 transition z-50"
+>
+  <nav class="space-y-6">
 
-                const first = content.querySelector("mark");
-                if (first) first.scrollIntoView({ behavior: "smooth", block: "center" });
-            });
-        });
-    </script>
+    <div>
+      <h3 class="text-xs uppercase text-muted mb-2">Getting Started</h3>
+      <ul class="space-y-1 text-sm">
+        <li><a href="#intro" class="hover:text-secondary">Introduction</a></li>
+      </ul>
+    </div>
+
+    <div>
+      <h3 class="text-xs uppercase text-muted mb-2">Accounts</h3>
+      <ul class="space-y-1 text-sm">
+        <li><a href="#acc-install" class="hover:text-secondary">Installation</a></li>
+        <li><a href="#acc-dev" class="hover:text-secondary">Development</a></li>
+      </ul>
+    </div>
+
+    <div>
+      <h3 class="text-xs uppercase text-muted mb-2">PlazaNet</h3>
+      <ul class="space-y-1 text-sm">
+        <li><a href="#pn-install" class="hover:text-secondary">Installation</a></li>
+        <li><a href="#pn-dev" class="hover:text-secondary">Development</a></li>
+      </ul>
+    </div>
+
+    <div>
+      <h3 class="text-xs uppercase text-muted mb-2">GamePlaza</h3>
+      <ul class="space-y-1 text-sm">
+        <li><a href="#gp-install" class="hover:text-secondary">Installation</a></li>
+        <li><a href="#gp-dev" class="hover:text-secondary">Development</a></li>
+      </ul>
+    </div>
+
+  </nav>
+</aside>
+
+<!-- Main Content -->
+<main class="flex-1 px-4 md:px-8 py-8 md:ml-0 space-y-14 docs-content">
+
+  <!-- Hero -->
+  <section class="bg-gradient-to-r from-primary/20 to-secondary/20 rounded-xl2 p-6 md:p-10">
+    <h1 class="text-3xl md:text-4xl font-bold mb-3">Welcome to PlazaNet</h1>
+    <p class="text-muted max-w-2xl">
+      Developer documentation for PlazaNet — a Miiverse-inspired social platform for creative communities.
+    </p>
+  </section>
+
+  <!-- Introduction -->
+  <section id="intro" class="space-y-4">
+    <h2 class="text-2xl font-semibold text-primary">Introduction</h2>
+    <p class="text-muted">
+      PlazaNet lets users post, draw, comment, and interact in themed hubs. It is built in Go and focuses on simplicity and performance.
+    </p>
+  </section>
+
+  <!-- Accounts -->
+  <section>
+    <h2 class="text-3xl font-bold flex items-center gap-3 mb-6">
+      <img src="/assets/logoAccounts.svg" class="w-8" />
+      Accounts
+    </h2>
+
+    <!-- Install -->
+    <div id="acc-install" class="space-y-3 mb-10">
+      <h3 class="text-xl font-semibold text-primary">Installation</h3>
+      <p class="text-muted">Coming soon.</p>
+    </div>
+
+    <!-- Dev -->
+    <div id="acc-dev" class="space-y-6">
+      <h3 class="text-xl font-semibold text-primary">Development</h3>
+
+      <div>
+        <h4 class="font-semibold text-secondary">Prerequisites</h4>
+        <ul class="list-disc pl-6 text-muted text-sm mt-2">
+          <li>Go 1.25+</li>
+          <li>Git</li>
+        </ul>
+      </div>
+
+      <div>
+        <h4 class="font-semibold text-secondary">Setup</h4>
+        <pre><code class="language-bash">git clone https://github.com/PlazaNetOrg/Accounts.git
+cd Accounts
+go mod download</code></pre>
+      </div>
+
+      <div>
+        <h4 class="font-semibold text-secondary">Configuration</h4>
+        <pre><code class="language-bash">cp .env.example .env</code></pre>
+
+        <ul class="list-disc pl-6 text-muted text-sm mt-2">
+          <li><b>JWT_SECRET</b> — Authentication secret</li>
+          <li><b>PORT</b> — Default: 792</li>
+          <li><b>PLAZANET_URL</b> — Instance URL</li>
+          <li><b>AUTH_SECURE</b> — Cookie security</li>
+        </ul>
+      </div>
+
+      <div>
+        <h4 class="font-semibold text-secondary">Run</h4>
+        <pre><code class="language-bash">go run cmd/main.go</code></pre>
+      </div>
+    </div>
+  </section>
+
+  <!-- PlazaNet -->
+  <section class="space-y-4">
+    <h2 class="text-3xl font-bold flex items-center gap-3">
+      <img src="/assets/logo.svg" class="w-8" />
+      PlazaNet
+    </h2>
+
+    <!-- Install -->
+    <div id="pn-install" class="space-y-3 mb-10">
+        <h3 class="text-xl font-semibold text-primary">Installation</h3>
+        <p class="text-muted">Coming soon.</p>
+    </div>
+
+    <!-- Dev -->
+    <div id="pn-dev" class="space-y-3 mb-10">
+        <h3 class="text-xl font-semibold text-primary">Development</h3>
+        <p class="text-muted">Coming soon.</p>
+    </div>
+  </section>
+
+  <!-- GamePlaza -->
+  <section class="space-y-4">
+    <h2 class="text-3xl font-bold">GamePlaza</h2>
+    
+    <!-- Install -->
+    <div id="gp-install" class="space-y-3 mb-10">
+        <h3 class="text-xl font-semibold text-primary">Installation</h3>
+        <p class="text-muted">Coming soon.</p>
+    </div>
+
+    <!-- Dev -->
+    <div id="gp-dev" class="space-y-3 mb-10">
+        <h3 class="text-xl font-semibold text-primary">Development</h3>
+        <p class="text-muted">Coming soon.</p>
+    </div>
+  </section>
+
+  <!-- Footer -->
+  <footer class="border-t border-divider pt-6 text-center text-sm text-muted">
+    © 2026 PlazaNet •
+    <a href="/about" class="text-secondary hover:underline">About</a> •
+    <a href="/docs" class="text-secondary hover:underline">Docs</a> •
+    <a href="https://github.com/PlazaNetOrg/" class="text-secondary hover:underline">GitHub</a>
+  </footer>
+
+</main>
+</div>
+
+<!-- Scripts -->
+<script>
+// Mobile menu
+const btn = document.getElementById("menuBtn");
+const sidebar = document.getElementById("sidebar");
+const overlay = document.getElementById("overlay");
+
+function closeMenu() {
+  sidebar.classList.add("-translate-x-full");
+  overlay.classList.add("hidden");
+}
+
+btn.addEventListener("click", () => {
+  sidebar.classList.toggle("-translate-x-full");
+  overlay.classList.toggle("hidden");
+});
+
+overlay.addEventListener("click", closeMenu);
+
+// Search
+const input = document.querySelector(".docs-search");
+const content = document.querySelector(".docs-content");
+
+if (input) {
+  const nodes = content.querySelectorAll("h1,h2,h3,h4,p,li,code");
+
+  function clear() {
+    content.querySelectorAll("mark").forEach(m =>
+      m.replaceWith(...m.childNodes)
+    );
+  }
+
+  input.addEventListener("input", () => {
+    const q = input.value.trim().toLowerCase();
+    clear();
+    if (!q) return;
+
+    nodes.forEach(el => {
+      const text = el.textContent;
+      if (text.toLowerCase().includes(q)) {
+        el.innerHTML = text.replace(
+          new RegExp(`(${q})`, "gi"),
+          "<mark class='bg-primary text-dark rounded px-1'>$1</mark>"
+        );
+      }
+    });
+
+    const first = content.querySelector("mark");
+    if (first) first.scrollIntoView({ behavior: "smooth", block: "center" });
+  });
+}
+</script>
 
 </body>
-
 </html>
